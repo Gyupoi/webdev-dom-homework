@@ -1,4 +1,7 @@
-export const initReply = (comments, addFormTextEl) => {
+import { comments } from "./data.js";
+
+export const initReply = () => {
+  const addFormTextEl = document.querySelector(".add-form-text");
   const commentsElements = document.querySelectorAll(".comment");
 
   commentsElements.forEach((commentElement) => {
@@ -6,9 +9,7 @@ export const initReply = (comments, addFormTextEl) => {
       const index = commentElement.dataset.index;
       const comment = comments[index];
 
-      const quote = `> ${comment.name}:\n> ${comment.text}`;
-
-      addFormTextEl.value = quote;
+      addFormTextEl.value = `> ${comment.name}:\n> ${comment.text}`;
     });
   });
 };

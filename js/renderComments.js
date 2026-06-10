@@ -1,10 +1,11 @@
+import { comments } from "./data.js";
 import { initLikes } from "./initLikes.js";
 import { initReply } from "./initReply.js";
 
-export const renderComments = (
-  comments,
-  commentsListEl
-) => {
+export const renderComments = () => {
+
+  const commentsListEl = document.querySelector(".comments");
+  
   const commentsHtml = comments
     .map((comment, index) => {
       return `
@@ -39,20 +40,6 @@ export const renderComments = (
 
   commentsListEl.innerHTML = commentsHtml;
 
-  renderCommentsCallback();
-};
-
-let renderCommentsCallback = () => {};
-
-export const setRenderCallback = (callback) => {
-  renderCommentsCallback = callback;
-};
-
-export const initCommentHandlers = (
-  comments,
-  addFormTextEl,
-  renderComments
-) => {
-  initLikes(comments, renderComments);
-  initReply(comments, addFormTextEl);
+  initLikes();
+  initReply();
 };

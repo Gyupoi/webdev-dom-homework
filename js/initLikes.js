@@ -1,4 +1,7 @@
-export const initLikes = (comments, renderComments) => {
+import { comments } from "./data.js";
+import { renderComments } from "./renderComments.js";
+
+export const initLikes = () => {
   const likeButtons = document.querySelectorAll(".like-button");
 
   likeButtons.forEach((button) => {
